@@ -38,29 +38,81 @@
 // 题目数据保证列表表示的数字不含前导零 
 // 
 // Related Topics 递归 链表 数学 👍 6777 👎 0
- 
-package editor.cn;
-public class AddTwoNumbers{
-  public static void main(String[] args) {
-       Solution solution = new AddTwoNumbers().new Solution();
-  }
-  //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for singly-linked list.
- */
-public class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
 
-class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return null;
+package editor.cn;
+
+public class AddTwoNumbers {
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(2);
+        ListNode l11 = new ListNode(4);
+        ListNode l111 = new ListNode(3);
+        l11.next = l111;
+        l1.next = l11;
+
+        ListNode l2 = new ListNode(5);
+        ListNode l22 = new ListNode(6);
+        ListNode l222 = new ListNode(4);
+        l22.next = l222;
+        l2.next = l22;
+        Solution solution = new AddTwoNumbers().new Solution();
+        solution.addTwoNumbers(l1, l2);
+        System.out.println(11 / 10);
     }
-}
+    //leetcode submit region begin(Prohibit modification and deletion)
+
+    /**
+     * Definition for singly-linked list.
+     */
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    class Solution {
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+            ListNode res = new ListNode();
+            ListNode cur = res;
+            // 进位
+            int carry = 0;
+
+            while (l1 != null || l2 != null) {
+                int var1 = l1 != null ? l1.val : 0;
+                int var2 = l2 != null ? l2.val : 0;
+                // 相加的值
+                int sum = var1 + var2 + carry;
+                // 下次待进位
+                carry = sum / 10;
+                // 真正的值
+                sum %= 10;
+
+                cur.next = new ListNode(sum);
+                cur = cur.next;
+
+                if (l1 != null) {
+                    l1 = l1.next;
+                }
+                if (l2 != null) {
+                    l2 = l2.next;
+                }
+            }
+            if(carry == 1){
+                cur.next = new ListNode(1);
+            }
+            return res.next;
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
