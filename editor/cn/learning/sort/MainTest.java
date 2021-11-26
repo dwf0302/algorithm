@@ -1,9 +1,6 @@
 package editor.cn.learning.sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author DWF
@@ -11,52 +8,82 @@ import java.util.List;
 public class MainTest {
 
     public static void main(String[] args) {
-        int[] arr = {1, 7, 6, 2, 9, 8};
-        selectSort(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] bubbleData = {1, 7, 6, 2, 9, 8};
+        bubbleSort(bubbleData);
+        System.out.println(Arrays.toString(bubbleData));
+        int[] selectData = {1, 7, 6, 2, 9, 8};
+        selectSort(selectData);
+        System.out.println(Arrays.toString(selectData));
 
-        List<String> strList = new ArrayList<>();
-        strList.add("1");
-        strList.add("2");
-        strList.add("3");
-//        strList.add("4");
-        List<String> strList2 = new ArrayList<>();
-        strList2.add("4");
-        strList2.add("6");
-        strList2.add("7");
-        boolean contains = Collections.disjoint(strList, strList2);
-        System.out.println(contains);
+        int[] insertData = {1, 7, 6, 2, 9, 8};
+        insertSort(insertData);
+        System.out.println(Arrays.toString(insertData));
+
+        int[] shellData = {1, 7, 6, 2, 9, 8};
+        shellSort(shellData);
+        System.out.println(Arrays.toString(shellData));
     }
 
     public static void bubbleSort(int[] arr) {
-
+        int temp;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
-                int var = arr[j];
-                if(arr[j] > arr[j+1]){
-                    arr[j] = arr[j+1];
-                    arr[j+1] = var;
+                temp = arr[j];
+                if (arr[j] > arr[j + 1]) {
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
     }
 
     public static void selectSort(int[] arr) {
+        int minVal;
+        int minIndex;
         for (int i = 0; i < arr.length; i++) {
-            int minIndex = i;
-            int minVal = arr[i];
-            for (int j = i +1 ; j < arr.length; j++) {
-                if(arr[j] < minVal){
+            minVal = arr[i];
+            minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (minVal > arr[j]) {
                     minVal = arr[j];
                     minIndex = j;
                 }
             }
-            if(minIndex != i){
+            if (minIndex != i) {
                 arr[minIndex] = arr[i];
                 arr[i] = minVal;
             }
         }
     }
 
+    public static void insertSort(int[] arr) {
+
+        for (int i = 1; i < arr.length; i++) {
+            int val = arr[i];
+            int j = i - 1;
+            while (j >= 0 && val < arr[j]) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = val;
+        }
+    }
+
+
+    public static void shellSort(int[] arr) {
+
+        for (int step = arr.length / 2; step > 0; step /= 2) {
+            for (int i = step; i < arr.length; i++) {
+                int val = arr[i];
+                int j = i - step;
+                while (j >= 0 && arr[j] > val) {
+                    arr[j+step] = arr[j];
+                    j = j -step;
+                }
+                arr[j+step] = val;
+            }
+        }
+
+    }
 
 }
