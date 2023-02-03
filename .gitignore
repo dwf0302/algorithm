@@ -1,0 +1,18 @@
+﻿*.idea
+*.gradle
+*.prefs
+*.project
+*.classpath
+*.log
+*.iml
+*.class
+
+.classpath
+.settings
+target
+
+# IDEA
+.idea
+*.iml
+*.zip
+*.pdb
