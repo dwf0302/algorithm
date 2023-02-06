@@ -1,6 +1,6 @@
 package cn.weifeng.linkedlist;
 
-public class TestLinkedList {
+public class ReversalLinkedList {
 
     public static void main(String[] args) {
         Node head = buildNode();
