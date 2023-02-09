@@ -18,11 +18,18 @@ public class SelectSort {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int temp = arr[i];
+            int index = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > arr[j]) {
-                    CommonMethod.swap(arr, i, j);
+                if (temp > arr[j]) {
+                    temp = arr[j];
+                    index = j;
                 }
+            }
+            if (index != i) {
+                arr[index] = arr[i];
+                arr[i] = temp;
             }
         }
     }
