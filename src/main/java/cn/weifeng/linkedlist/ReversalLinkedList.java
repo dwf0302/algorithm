@@ -80,17 +80,13 @@ public class ReversalLinkedList {
 
     private static Node buildNode() {
 
-        Node node1 = new Node();
-        node1.setValue(1);
+        Node node1 = new Node(1);
 
-        Node node2 = new Node();
-        node2.setValue(2);
+        Node node2 = new Node(2);
 
-        Node node3 = new Node();
-        node3.setValue(3);
+        Node node3 = new Node(3);
 
-        Node node4 = new Node();
-        node4.setValue(4);
+        Node node4 = new Node(4);
 
         node1.next = node2;
         node2.next = node3;
@@ -100,11 +96,15 @@ public class ReversalLinkedList {
     }
 
     static class DoubleNode {
-        private int value;
-        private DoubleNode next;
-        private DoubleNode last;
+        public int value;
+        public DoubleNode next;
+        public DoubleNode last;
 
         public DoubleNode() {
+        }
+
+        public DoubleNode(int value) {
+            this.value = value;
         }
 
         public DoubleNode(int value, DoubleNode next, DoubleNode last) {
@@ -112,67 +112,22 @@ public class ReversalLinkedList {
             this.next = next;
             this.last = last;
         }
-
-        public int getValue() {
-            return value;
-        }
-
-        public void setValue(int value) {
-            this.value = value;
-        }
-
-        public DoubleNode getNext() {
-            return next;
-        }
-
-        public void setNext(DoubleNode next) {
-            this.next = next;
-        }
-
-        public DoubleNode getLast() {
-            return last;
-        }
-
-        public void setLast(DoubleNode last) {
-            this.last = last;
-        }
-
-        public DoubleNode next() {
-            return next;
-        }
     }
 
-
     static class Node {
-        private int value;
-        private Node next;
+        public int value;
+        public Node next;
 
         public Node() {
+        }
+
+        public Node(int value) {
+            this.value = value;
         }
 
         public Node(int value, Node next) {
             this.value = value;
             this.next = next;
-        }
-
-        public int getValue() {
-            return value;
-        }
-
-        public void setValue(int value) {
-            this.value = value;
-        }
-
-        public Node getNode() {
-            return next;
-        }
-
-        public void setNode(Node next) {
-            this.next = next;
-        }
-
-        public Node next() {
-            return next;
         }
     }
 }

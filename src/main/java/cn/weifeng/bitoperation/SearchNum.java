@@ -31,7 +31,6 @@ public class SearchNum {
             }
         }
         System.out.println("一号数字：" + onlyOne + " 二号数字：" + (onlyOne ^ eor));
-
     }
 
     /**
