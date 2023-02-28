@@ -34,6 +34,7 @@ public class HeapSort {
         int[] arr = new int[]{2, 3, 1, 5, 6, 7, 2};
         sort(arr);
         System.out.println("");
+
     }
 
     public static void sort(int[] arr) {
