@@ -38,23 +38,40 @@
 //
 // Related Topics 哈希表 字符串 滑动窗口 👍 8798 👎 0
 
- 
-package cn.weifeng.leetcode.editor.cn;
- 
-//无重复字符的最长子串
- 
-class P3_LongestSubstringWithoutRepeatingCharacters{
-     public static void main(String[] args) {
-         //测试代码
-         Solution solution = new P3_LongestSubstringWithoutRepeatingCharacters().new Solution();
-     }
-//力扣代码
-    //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
 
+package cn.weifeng.leetcode.editor.cn;
+
+//无重复字符的最长子串
+
+import java.util.HashMap;
+
+class P3_LongestSubstringWithoutRepeatingCharacters {
+    public static void main(String[] args) {
+        //测试代码
+        Solution solution = new P3_LongestSubstringWithoutRepeatingCharacters().new Solution();
+        int length = solution.lengthOfLongestSubstring("abba");
+        System.out.println(length);
     }
-}
+
+    //力扣代码
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public int lengthOfLongestSubstring(String s) {
+            if (s == null) {
+                return 0;
+            }
+            HashMap<Character, Integer> map = new HashMap<>();
+            int begin = 0, max = 0;
+            for (int i = 0; i < s.length(); i++) {
+                if (map.containsKey(s.charAt(i))) {
+                    begin = Math.max(begin, map.get(s.charAt(i)) + 1);
+                }
+                map.put(s.charAt(i), i);
+                max = Math.max(max, i - begin + 1);
+            }
+            return max;
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

@@ -51,7 +51,7 @@ class P2_AddTwoNumbers{
          Solution solution = new P2_AddTwoNumbers().new Solution();
      }
 //力扣代码
-    //leetcode submit region begin(Prohibit modification and deletion)
+// leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
