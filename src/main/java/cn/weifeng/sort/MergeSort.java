@@ -5,7 +5,7 @@ package cn.weifeng.sort;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {2, 7, 1, 3, 5, 9, 8, 0};
+        int[] arr = new int[]{3, 2, 4, 5, 4, 6, 1, 2};
         sort(arr, 0, arr.length - 1);
         System.out.println("11111");
     }
@@ -36,6 +36,8 @@ public class MergeSort {
         while (p2 <= R) {
             help[i++] = arr[p2++];
         }
+
+
 
         for (int j = 0; j < help.length; j++) {
             arr[L + j] = help[j];
