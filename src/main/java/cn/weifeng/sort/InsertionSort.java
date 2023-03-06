@@ -1,5 +1,7 @@
 package cn.weifeng.sort;
 
+import cn.weifeng.common.CommonMethod;
+
 /**
  * 插入排序
  */

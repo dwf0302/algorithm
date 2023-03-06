@@ -1,4 +1,4 @@
-package cn.weifeng.sort;
+package cn.weifeng.common;
 
 public class CommonMethod {
 
