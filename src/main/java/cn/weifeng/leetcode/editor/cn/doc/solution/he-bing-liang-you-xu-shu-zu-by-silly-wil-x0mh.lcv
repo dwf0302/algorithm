@@ -1,0 +1,36 @@
+## 思路
+
+基于两数组的有序性，使下列实现方式成为可能：<br>
+比较两数组的最大元素【即数组最后一个元素】，将比较得出的最大值从后往前依次填充于nums1数组。<br>
+在比较结束后，将num2数组剩余的值拷贝至nums1数组剩余空间
+
+     需处理的问题
+        1、实现有序比较
+        -> 创建类似于指针的变量指向两个旧数组和一个新数组的末尾元素
+
+        2、比较过程中，len2先变为负值
+        -> 说明num2已全部拷贝于num1中，0元素，拷贝完成了！
+
+        3、len1先变为负值
+        -> num1原有元素已全部拷贝于新num1中，且维持有序性，但是num2还有元素，其元素维持原有的有序性，接下来只需将num2拷贝于num1剩余空间即可
+
+      重要方法补充
+        -> 拷贝数组
+         System.arraycopy(要拷贝的数组名，开始拷贝的下标，拷贝目的地数组名，开始拷贝的下标，要拷贝的元素个数)
+
+class Solution {
+public void merge(int[] nums1, int m, int[] nums2, int n) {
+int len1=m-1,len2=n-1,len=m+n-1;
+//key code
+while(len1>=0&&len2>=0){
+nums1[len--]=nums1[len1]>nums2[len2]?nums1[len1--]:nums2[len2--];
+}
+System.arraycopy(nums2,0,nums1,0,len2+1);
+}
+}
+
+* 
+
+```
+```
+

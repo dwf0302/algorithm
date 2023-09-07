@@ -1,0 +1,28 @@
+**解题思路**
+
+既然数组nums1后半部分有足够的空间包含nums2 中数据.
+
+那么我们就从后往前遍历. 以此比较nums1,nums2中的元素,
+
+较大填充到最后面.
+
+注意:遍历结束的时候,可能nums2没有拷贝完成，直接将其拷贝到nums1
+
+**代码实现**
+
+* 
+
+```
+public void merge(int[] nums1, int m, int[] nums2, int n) {
+    int l1=m-1;
+    int l2=n-1;
+    int l=m+n-1;
+    while(l1 >=0 && l2 >=0){
+        nums1[l--] = nums1[l1] > nums2[l2] ? nums1[l1--] :nums2[l2--];
+    }
+    System.arraycopy(nums2,0,nums1,0,l2+1);
+}
+```
+
+如果有帮助到你，请给题解点个赞和收藏，让更多的人看到.
+欢迎你 [关注我](https://mp.weixin.qq.com/s/R0EH4GvUYb0w2ZEc293hMg) 和 加入我们的「组队打卡」小群

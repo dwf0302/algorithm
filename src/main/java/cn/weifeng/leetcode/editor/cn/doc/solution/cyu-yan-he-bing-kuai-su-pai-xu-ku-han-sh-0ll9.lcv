@@ -1,0 +1,28 @@
+### 解题思路
+
+c语言合并有序数组，先将两个数组合并，主要是将数组二放到数组一的后边，用一个for循环就行了。
+然后使用库函数qsort来实现快速排序，里边的参数分别是：数组首地址，数组大小，数组中元素类型大小，比较函数；
+比较函数需要自己写，根据返回值的正负来判断放前边还是后边，这样升序还是降序就能由用户来决定
+
+### 代码
+
+* c
+
+```c
+int cmp(int* a,int* b){
+    return *a-*b;
+}
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+    if(nums2Size==0){
+        return;
+    }
+    for(int i=0;i<n;i++){
+        nums1[i+m]=nums2[i];
+    }
+    qsort(nums1,nums1Size,sizeof(int),cmp);
+}
+
+
+
+```
+
